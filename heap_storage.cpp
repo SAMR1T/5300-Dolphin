@@ -229,16 +229,16 @@ void HeapFile::create(){
 void HeapFile::db_open(uint flags) {
     if(!this->closed)
         return;
-    try{
-        this->db.set_re_len(DbBlock::BLOCK_SZ);
-        this->db.open(nullptr, this->dbfilename.c_str(), nullptr, DB_RECNO, flags, 0);
-    }catch (DbException &e) {
-        cerr << "Fail to open db: " << e.what() << endl;
-        //return;
-    }
+    // try{
+    //     this->db.set_re_len(DbBlock::BLOCK_SZ);
+    //     this->db.open(nullptr, this->dbfilename.c_str(), nullptr, DB_RECNO, flags, 0);
+    // }catch (DbException &e) {
+    //     cerr << "Fail to open db: " << e.what() << endl;
+    //     //return;
+    // }
     //this->dbfilename = filepath + '/' + name + ".db";
-    // this->db.set_re_len(DbBlock::BLOCK_SZ);
-    // this->db.open(nullptr, this->dbfilename.c_str(), nullptr, DB_RECNO, flags, 0);
+    this->db.set_re_len(DbBlock::BLOCK_SZ);
+    this->db.open(nullptr, this->dbfilename.c_str(), nullptr, DB_RECNO, flags, 0);
     //cout << "Comes here" << endl;
     if(flags) {
         //cout << "Comes 0" << endl;

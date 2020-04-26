@@ -57,8 +57,6 @@ Here output of the sample of the code being run:
 SQL> test
 test_heap_storage: create ok
 drop ok
-Fail to open db: Db::open: No such file or directory
-BDB1565 DB->stat: method not permitted before handle's open method
 create_if_not_exsts ok
 try insert
 insert ok

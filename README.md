@@ -3,8 +3,10 @@ DB Relation Manager project for CPSC5300/4300 at Seattle U, Spring 2020
 
 ## Sprint Verano:
 **Author:**
-Ruoyang Qiu
-Samrit Dhesi 
+
+*Ruoyang Qiu*
+
+*Samrit Dhesi* 
 ### Milestone1
 In Milestone 1, we've create an SQL interpreter that takes in SQL statments and returns an appropriatley formatted SQL statement back to the user. 
 The interpreter supports SELECT, CREATE, and INSERT statments. 

@@ -11,9 +11,13 @@
 #include "db_cxx.h"
 #include "SQLParser.h"
 #include "sqlhelper.h"
+#include "heap_storage.h"
+
 
 using namespace std;
 using namespace hsql;
+
+DbEnv *_DB_ENV;
 
 string expressionToString(Expr *expr);
 string executeSelectStatement(const SelectStatement *stmt);
@@ -316,6 +320,8 @@ int main(int argc, char **argv) {
 		exit(1);
 	}
 
+	_DB_ENV = &env;
+
 	while(true) {
 		cout << "SQL> ";
 		string query;
@@ -324,7 +330,10 @@ int main(int argc, char **argv) {
 			continue;
 		if(query == "quit")
 			break;
-		
+		if (query == "test") {
+            cout << "test_heap_storage: " << (test_heap_storage() ? "ok" : "failed") << endl;
+            continue;
+        }
 		SQLParserResult *sqlresult = SQLParser::parseSQLString(query);
 
 		if(!sqlresult->isValid()) {
